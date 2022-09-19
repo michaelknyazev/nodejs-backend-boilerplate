@@ -1,0 +1,9 @@
+# General
+node_modules
+.DS_Store
+*.tmp
+.env
+
+# Destra
+managers.json
+domains.json

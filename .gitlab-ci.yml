@@ -1,0 +1,20 @@
+image: node:16
+
+stages:
+    - deploy
+
+deploy:
+    stage: deploy
+    only: 
+        - main
+        - master
+        - stable
+        - /^release-.*$/
+    image: docker:git # use simply git docker image
+    services:
+        - docker:dind
+    script:
+        - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+        - docker build --build-arg CI_JOB_TOKEN=$CI_JOB_TOKEN -t registry.gitlab.com/$CI_PROJECT_PATH .
+        - docker tag registry.gitlab.com/$CI_PROJECT_PATH registry.gitlab.com/$CI_PROJECT_PATH:$CI_COMMIT_REF_NAME
+        - docker push registry.gitlab.com/$CI_PROJECT_PATH:$CI_COMMIT_REF_NAME

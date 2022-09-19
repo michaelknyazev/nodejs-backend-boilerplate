@@ -1,0 +1,28 @@
+{
+  "name": "nodejs-backend-boilerplate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": {
+    "name": "Michael Knyazev",
+    "email": "saysomethingnice@michaelknyazev.com",
+    "url": "https://michaelknyazev.com"
+  },
+  "repository": {
+    "url": "https://github.com/michaelknyazev/nodejs-backend-boilerplate.git",
+    "type": "git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon ./src/index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "mongoose": "^6.3.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
